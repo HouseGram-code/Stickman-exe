@@ -1,0 +1,59 @@
+@import "tailwindcss";
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+@keyframes run-leg-f {
+  0% { transform: rotate(30deg); }
+  50% { transform: rotate(-30deg); }
+  100% { transform: rotate(30deg); }
+}
+@keyframes run-leg-b {
+  0% { transform: rotate(-30deg); }
+  50% { transform: rotate(30deg); }
+  100% { transform: rotate(-30deg); }
+}
+@keyframes run-arm-f {
+  0% { transform: rotate(-30deg); }
+  50% { transform: rotate(30deg); }
+  100% { transform: rotate(-30deg); }
+}
+@keyframes run-arm-b {
+  0% { transform: rotate(30deg); }
+  50% { transform: rotate(-30deg); }
+  100% { transform: rotate(30deg); }
+}
+
+.animate-leg-f { animation: run-leg-f 0.4s infinite linear; }
+.animate-leg-b { animation: run-leg-b 0.4s infinite linear; }
+.animate-arm-f { animation: run-arm-f 0.4s infinite linear; }
+.animate-arm-b { animation: run-arm-b 0.4s infinite linear; }
+
+.glitch-text {
+  text-shadow: 2px 0 red, -2px 0 blue;
+  animation: glitch 1s infinite linear alternate-reverse;
+}
+
+@keyframes glitch {
+  0% { transform: skewX(0deg); }
+  5% { transform: skewX(2deg); }
+  10% { transform: skewX(-2deg); }
+  15% { transform: skewX(0deg); }
+  100% { transform: skewX(0deg); }
+}
+
+.bg-noise {
+  background-image: url('data:image/svg+xml,%3Csvg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noiseFilter"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23noiseFilter)"/%3E%3C/svg%3E');
+  pointer-events: none;
+}
+
+.fire-bg {
+  background: linear-gradient(to top, #3a0000, #ff4500 20%, #000 80%);
+  animation: flicker 0.1s infinite alternate;
+}
+
+@keyframes flicker {
+  0% { opacity: 0.9; }
+  100% { opacity: 1; }
+}
