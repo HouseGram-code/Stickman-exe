@@ -22,6 +22,7 @@ const Stickman = React.forwardRef(({ initialX, initialY, initialZ, isRunning, in
       width: '50px', height: '100px',
       left: '-25px', bottom: '0'
     }}>
+      {!isDead && <div className="absolute bottom-[-4px] left-[15px] w-[20px] h-[8px] bg-black/40 rounded-full blur-[3px]"></div>}
       <div className={`w-8 h-8 rounded-full border-4 absolute top-0 left-[9px]`} style={{ borderColor: color }}>
         {color === 'red' && (
           <>
@@ -55,6 +56,7 @@ const Tree = React.memo(({ x, z, phase }: any) => {
       width: '100px', height: '200px',
       left: '-50px', bottom: '0'
     }}>
+      <div className="absolute bottom-[-5px] left-[30px] w-[40px] h-[10px] bg-black/50 rounded-full blur-[4px]"></div>
       <div className={`w-4 h-32 absolute bottom-0 left-[48px] ${phase === 0 ? 'bg-amber-900' : isBurning ? 'bg-orange-900' : 'bg-gray-900'}`}></div>
       <div className={`w-24 h-24 rounded-full absolute top-10 left-[4px] transition-colors duration-1000 ${phase === 0 ? 'bg-green-700' : isBurning ? 'bg-red-600 animate-pulse' : phase === 1 || phase === 2 ? 'bg-gray-800' : 'bg-red-950'}`}></div>
       <div className={`w-20 h-20 rounded-full absolute top-0 left-[20px] transition-colors duration-1000 ${phase === 0 ? 'bg-green-600' : isBurning ? 'bg-orange-500 animate-pulse' : phase === 1 || phase === 2 ? 'bg-gray-700' : 'bg-red-900'}`}></div>
@@ -70,7 +72,9 @@ const Ring = ({ x, z }: any) => (
     border: '16px solid #ffd700',
     boxShadow: '0 0 30px #ffaa00, inset 0 0 30px #ffaa00',
     left: '-60px', bottom: '50px'
-  }}></div>
+  }}>
+    <div className="absolute bottom-[-50px] left-[20px] w-[80px] h-[15px] bg-black/60 rounded-full blur-[6px]"></div>
+  </div>
 );
 
 export default function Game({ onGameOver, onWin }: { onGameOver: () => void, onWin: () => void }) {
@@ -103,11 +107,13 @@ export default function Game({ onGameOver, onWin }: { onGameOver: () => void, on
   const playerRef = useRef<HTMLDivElement>(null);
   const cameraRef = useRef<HTMLDivElement>(null);
   const enemyRef = useRef<HTMLDivElement>(null);
+  const groundRef = useRef<HTMLDivElement>(null);
+  const groundPatternRef = useRef<HTMLDivElement>(null);
 
-  const trees = useMemo(() => Array.from({ length: 200 }).map((_, i) => ({
+  const trees = useMemo(() => Array.from({ length: 300 }).map((_, i) => ({
     id: i,
-    x: Math.random() * 20000 - 1000,
-    z: Math.random() * -1000 - 100
+    x: Math.random() * 40000 - 15000,
+    z: Math.random() * -1500 - 100
   })), []);
 
   const deadBodies = useMemo(() => Array.from({ length: 40 }).map((_, i) => ({
@@ -213,6 +219,12 @@ export default function Game({ onGameOver, onWin }: { onGameOver: () => void, on
     }
     if (cameraRef.current) {
       cameraRef.current.style.transform = `translate3d(${-cameraXRef.current}px, 150px, 0)`;
+    }
+    if (groundRef.current) {
+      groundRef.current.style.transform = `translate3d(${cameraXRef.current}px, 0, 0) rotateX(90deg)`;
+    }
+    if (groundPatternRef.current) {
+      groundPatternRef.current.style.backgroundPosition = `${-cameraXRef.current}px 0px`;
     }
 
     // UI State updates
@@ -322,14 +334,14 @@ export default function Game({ onGameOver, onWin }: { onGameOver: () => void, on
 
       <div ref={cameraRef} className="absolute top-1/2 left-1/2 w-0 h-0" style={{ transformStyle: 'preserve-3d', transform: `translate3d(0px, 150px, 0)` }}>
         
-        <div className="absolute transition-colors duration-[3000ms]" style={{ 
-          width: '30000px', height: '3000px', 
-          left: '-5000px', top: '0',
+        <div ref={groundRef} className="absolute transition-colors duration-[3000ms]" style={{ 
+          width: '8000px', height: '4000px', 
+          left: '-4000px', top: '0',
           background: phase === 0 ? '#2d5a27' : phase === 4 ? '#3a0000' : '#1a1a1a',
           transform: 'rotateX(90deg) translateZ(0px)',
           transformOrigin: 'top center'
         }}>
-           <div className="w-full h-full transition-opacity duration-[3000ms]" style={{ 
+           <div ref={groundPatternRef} className="w-full h-full transition-opacity duration-[3000ms]" style={{ 
              backgroundImage: 'linear-gradient(#000 2px, transparent 2px), linear-gradient(90deg, #000 2px, transparent 2px)', 
              backgroundSize: '200px 200px', 
              opacity: phase === 0 ? 0.1 : phase === 4 ? 0.3 : 0.05 
