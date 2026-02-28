@@ -33,6 +33,14 @@ export default function Menu({ onPlay, onInfo }: { onPlay: () => void, onInfo: (
         >
           INFORMATION
         </button>
+        <a 
+          href="https://github.com/HouseGram-code/Stickman-exe?tab=readme-ov-file#russian"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-xl font-bold text-gray-600 hover:text-red-500 hover:scale-110 transition-all duration-200 cursor-pointer tracking-widest mt-2"
+        >
+          GITHUB
+        </a>
       </div>
       
       {glitch && (

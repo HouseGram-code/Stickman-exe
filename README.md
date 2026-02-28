@@ -65,10 +65,27 @@ Want to make your own changes or add new features? We welcome contributions! Ple
 </details>
 
 ### 📦 Version History
-| Version | Date | Description | Status |
-| :---: | :---: | :--- | :---: |
-| **v0.1 Beta** | *Feb 2026* | Initial release. Added 2.5D engine, 3 phases, jumpscare, and mobile controls. | 🟢 Current |
-| **v0.2** | *TBA* | Planned: New playable characters and extended lore. | 🟡 Planned |
+
+<details>
+<summary><b>🚀 Click to view Version History & Changelog</b></summary>
+<br>
+
+#### 🟢 v0.1 Beta (February 2026)
+* **Initial Release:** The nightmare begins.
+* **Engine:** Custom 2.5D pseudo-3D engine built with CSS transforms.
+* **Gameplay:** 3 distinct phases (Peaceful, Corrupted, Burning).
+* **Mechanics:** Running, jumping, and a terrifying chase sequence.
+* **UI/UX:** Main menu, Information screen, and Character Selection screen.
+* **Audio:** Web Audio API integrated for dynamic jumpscare sounds and chase sirens.
+* **Mobile Support:** Added on-screen touch controls and disabled zooming/scrolling.
+* **Links:** Added GitHub source code link to the main menu.
+
+#### 🟡 v0.2 (Planned)
+* **New Characters:** Unlockable characters with different stats.
+* **Extended Lore:** More background story and hidden easter eggs.
+* **New Levels:** Additional phases and obstacles.
+
+</details>
 
 ---
 
@@ -122,10 +139,27 @@ Want to make your own changes or add new features? We welcome contributions! Ple
 </details>
 
 ### 📦 История версий
-| Версия | Дата | Описание | Статус |
-| :---: | :---: | :--- | :---: |
-| **v0.1 Beta** | *Фев 2026* | Первый релиз. Добавлен 2.5D движок, 3 фазы, скример и мобильное управление. | 🟢 Текущая |
-| **v0.2** | *TBA* | В планах: Новые игровые персонажи и расширение сюжета. | 🟡 В планах |
+
+<details>
+<summary><b>🚀 Нажмите, чтобы открыть Список версий и изменений</b></summary>
+<br>
+
+#### 🟢 v0.1 Beta (Февраль 2026)
+* **Первый релиз:** Кошмар начинается.
+* **Движок:** Кастомный 2.5D псевдо-3D движок на основе CSS-трансформаций.
+* **Геймплей:** 3 уникальные фазы (Мирная, Искаженная, Пылающая).
+* **Механики:** Бег, прыжки и пугающая сцена погони.
+* **Интерфейс:** Главное меню, экран информации и экран выбора персонажа.
+* **Аудио:** Интеграция Web Audio API для динамичных звуков скримеров и сирены погони.
+* **Мобильная версия:** Добавлено сенсорное управление на экране, отключено масштабирование и прокрутка.
+* **Ссылки:** Добавлена ссылка на исходный код GitHub в главное меню.
+
+#### 🟡 v0.2 (В планах)
+* **Новые персонажи:** Разблокируемые герои с разными характеристиками.
+* **Расширение сюжета:** Больше предыстории и скрытых пасхалок.
+* **Новые уровни:** Дополнительные фазы и препятствия.
+
+</details>
 
 ---
 
